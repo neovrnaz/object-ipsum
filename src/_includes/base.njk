@@ -9,12 +9,15 @@
     <link rel='stylesheet' href='{{ 'css/style.css' | url }}'>
 </head>
 <body>
-<a href='{{ '/about' | url }}'>About</a>
+<a href='{{ '/about/' | url }}'>About</a>
 <h1>{{ title }}</h1>
 {{ content | safe }}
 
-{{ '\n------------' | log }}
-{{ title | log }}
-{{ '------------\n' | log }}
+<div class='debugger'>
+    <h1>{{ objects.eleventyComputed.aString }}</h1>
+    <h1>{{ objects.eleventyComputed.obj1 }}</h1>
+    <h1>Object Name: {{ objects.eleventyComputed.object }}</h1>
+</div>
+
 </body>
 </html>

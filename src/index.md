@@ -1,6 +1,6 @@
 ---
-title: 'Index'
+title: 'Home'
 layout: 'base.njk'
 ---
 
-This is a home page
+Welcome to the home page

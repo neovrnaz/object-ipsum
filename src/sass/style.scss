@@ -1,4 +1,21 @@
 body {
   font-family: sans-serif;
-  color: hsl(52, 77%, 51%);
+  color: hsl(53, 82%, 62%);
+}
+
+.debugger {
+  background: hsl(0, 0%, 96%);
+  border: 1px solid hsl(0, 0%, 87%);
+  border-left: 3px solid hsl(18, 89%, 58%);
+  color: hsl(0, 0%, 40%);
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }
