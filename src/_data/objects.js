@@ -13,11 +13,8 @@ const object3 = {
   two: '"2"',
 };
 
+const objectsStringArray = ['object1', 'object2', 'object3'];
 const objectsArray = [object1, object2, object3];
-
-function getObjectName(obj) {
-  return Object.keys(obj)[0];
-}
 
 function addNewLine(currPropNum, numOfProps) {
   const hasAnotherProp = currPropNum < numOfProps;
@@ -29,7 +26,7 @@ function addQuotesToValue(val) {
   return isValString ? `'${val}'` : `${val}`;
 }
 
-function buildProps(obj) {
+function buildObjectProps(obj) {
   const numberOfProps = Object.keys(obj).length;
   let currentPropNum = 0;
   let output = '';
@@ -48,14 +45,31 @@ const ${objName} {
 };
 `;
 
-function objectStringBuilder(funct) {
-  const objName = getObjectName(obj);
-  const objProps = buildProps(obj);
-  return objectToString(objName, objProps);
+const numOfStrings = () => {
+  let num = 0;
+  objectsStringArray.forEach(() => num++);
+  return num;
+};
+console.log(`numOfStrings() = ${numOfStrings()}`);
+
+function objectStringBuilder() {
+  const stringBuild = objectsStringArray.forEach((prop, objName) => {
+    buildObjectProps(prop);
+    objectToString(objName);
+    console.log();
+  });
 }
 
-loop
+function objectStringBuilder2() {
+  for (const object of objectsStringArray) {
+    return object;
+  }
+}
 
-module.exports = {
-  eleventyComputed: {},
-};
+function objectStringBuilder3() {
+  objectsArray.forEach((obj) => {
+    return buildObjectProps(obj);
+  });
+}
+
+console.log(objectStringBuilder3());
