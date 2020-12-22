@@ -13,18 +13,20 @@ const object3 = {
   two: '"2"',
 };
 
-const objectsStringArray = ['object1', 'object2', 'object3'];
-const objectsArray = [object1, object2, object3];
+const object4 = {
+  foo: 'foo',
+  bar: 'bar',
+};
+
+const objectsArray = [object1, object2, object3, object4];
 
 function addNewLine(currPropNum, numOfProps) {
   const hasAnotherProp = currPropNum < numOfProps;
   return hasAnotherProp ? '\n  ' : '';
 }
 
-function addQuotesToValue(val) {
-  const isValString = typeof val === 'string';
-  return isValString ? `'${val}'` : `${val}`;
-}
+const objectToString = (objName, objProps) =>
+  `const ${objName} = {\n  ${objProps}\n};\n\n`;
 
 function buildObjectProps(obj) {
   const numberOfProps = Object.keys(obj).length;
@@ -32,77 +34,38 @@ function buildObjectProps(obj) {
   let output = '';
   for (const [key, value] of Object.entries(obj)) {
     currentPropNum++;
-    const valueWithTypeCheck = addQuotesToValue(value);
     const newLine = addNewLine(currentPropNum, numberOfProps);
-    output += `${key}: ${valueWithTypeCheck}${newLine}`;
+    output += `${key}: ${value}${newLine}`;
   }
   return output;
 }
 
-const objectString = (objName, objProps) => `
-const ${objName} {
-  ${objProps}
-};
-`;
-
-function numOfStrings() {
-  let num = 0;
-  objectsStringArray.forEach(() => num++);
-  return num;
-}
-
-// console.log(`numOfStrings() = ${numOfStrings()}`);
-
 function objectNames() {
-  objectsStringArray.forEach((obj) => obj);
+  objectsArray.forEach((obj) => obj);
 }
 
-function objectStringBuilder() {
-  const stringBuild = objectsStringArray.forEach((prop, objName) => {
-    buildObjectProps(prop);
-    objectString(objName);
-    console.log();
-  });
-}
-
-function objectStringBuilder2() {
-  for (const object of objectsStringArray) {
-    return object;
-  }
-}
-
-objectsArray.forEach((currObj) => {});
-
-function allObjectsToString() {
+function logObjectsAsString() {
   let allObjects = '';
   objectsArray.forEach((currObj) => {
     const objectName = objectNames(currObj);
     const objectProps = buildObjectProps(currObj);
-    allObjects += objectString(objectName, objectProps);
-    console.log(allObjects);
+    allObjects += objectToString(objectName, objectProps);
   });
+  console.log(allObjects);
   return allObjects;
 }
 
-function objectToString() {
-  const objectArr = [];
+function logObjectsAsArray() {
+  const arr = [];
   objectsArray.forEach((currObj) => {
-    const objectName = objectNames(currObj);
-    const objectProps = buildObjectProps(currObj);
-    objectArr.push(objectString(objectName, objectProps));
+    const objName = objectNames(currObj);
+    const objProps = buildObjectProps(currObj);
+    const objString = objectToString(objName, objProps);
+    arr.push({objString});
   });
-  return objectArr;
+  console.log(arr);
+  return arr;
 }
 
-function objectsToArray() {
-  const objectArr = [];
-  objectsArray.forEach((currObj) => {
-    const objectName = objectNames(currObj);
-    const objectProps = buildObjectProps(currObj);
-    objectArr.push(objectString(objectName, objectProps));
-  });
-  return objectArr;
-}
-
-console.log(objectToString());
-objectToString();
+logObjectsAsString();
+logObjectsAsArray();
