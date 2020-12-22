@@ -9,16 +9,12 @@ const object2 = {
 };
 
 const objectsArray = [object1, object2];
-console.log(objectsArray.toString());
 
-function getObjName(obj) {
-  return {
-    objName: () => obj,
-  };
+function getObjectName(obj) {
+  return Object.keys(obj)[0];
 }
-const obj1Name = getObjName(object1);
-console.log(obj1Name);
-console.log(JSON.stringify(obj1Name));
+
+console.log(getObjectName({bar}));
 
 function addNewLine(currPropNum, numOfProps) {
   const hasAnotherProp = currPropNum < numOfProps;
@@ -50,7 +46,7 @@ const ${objName} {
 `;
 
 function objectStringBuilder(obj) {
-  const objName = getObjName(obj);
+  const objName = getObjectName(obj);
   const objProps = buildProps(obj);
   return objectToString(objName, objProps);
 }
@@ -58,6 +54,7 @@ function objectStringBuilder(obj) {
 function buildAllStrings() {
   for (let currObj = 0; currObj < objectsArray.length; currObj++) {
     const currentObject = objectsArray[currObj];
+    const object = objectStringBuilder(currentObject);
   }
 }
 
