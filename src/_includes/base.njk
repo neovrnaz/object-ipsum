@@ -16,8 +16,13 @@
 <div class='debugger'>
     <h1>{{ objects.eleventyComputed.aString }}</h1>
     <h1>{{ objects.eleventyComputed.obj1 }}</h1>
-    <h1>Object Name: {{ objects.eleventyComputed.object }}</h1>
+    <h1>{{ objects.eleventyComputed.object }}</h1>
+
+    {# Undefined #}
+    <h1>{{ html-demo.eleventyComputed.myString | log }}</h1>
+
 </div>
+
 
 </body>
 </html>

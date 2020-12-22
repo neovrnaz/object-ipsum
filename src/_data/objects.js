@@ -67,5 +67,5 @@ function logObjectsAsArray() {
   return arr;
 }
 
-logObjectsAsString();
-logObjectsAsArray();
+// logObjectsAsString();
+// logObjectsAsArray();
