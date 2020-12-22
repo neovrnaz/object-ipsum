@@ -39,23 +39,28 @@ function buildObjectProps(obj) {
   return output;
 }
 
-const objectToString = (objName, objProps) => `
+const objectString = (objName, objProps) => `
 const ${objName} {
   ${objProps}
 };
 `;
 
-const numOfStrings = () => {
+function numOfStrings() {
   let num = 0;
   objectsStringArray.forEach(() => num++);
   return num;
-};
-console.log(`numOfStrings() = ${numOfStrings()}`);
+}
+
+// console.log(`numOfStrings() = ${numOfStrings()}`);
+
+function objectNames() {
+  objectsStringArray.forEach((obj) => obj);
+}
 
 function objectStringBuilder() {
   const stringBuild = objectsStringArray.forEach((prop, objName) => {
     buildObjectProps(prop);
-    objectToString(objName);
+    objectString(objName);
     console.log();
   });
 }
@@ -66,10 +71,38 @@ function objectStringBuilder2() {
   }
 }
 
-function objectStringBuilder3() {
-  objectsArray.forEach((obj) => {
-    return buildObjectProps(obj);
+objectsArray.forEach((currObj) => {});
+
+function allObjectsToString() {
+  let allObjects = '';
+  objectsArray.forEach((currObj) => {
+    const objectName = objectNames(currObj);
+    const objectProps = buildObjectProps(currObj);
+    allObjects += objectString(objectName, objectProps);
+    console.log(allObjects);
   });
+  return allObjects;
 }
 
-console.log(objectStringBuilder3());
+function objectToString() {
+  const objectArr = [];
+  objectsArray.forEach((currObj) => {
+    const objectName = objectNames(currObj);
+    const objectProps = buildObjectProps(currObj);
+    objectArr.push(objectString(objectName, objectProps));
+  });
+  return objectArr;
+}
+
+function objectsToArray() {
+  const objectArr = [];
+  objectsArray.forEach((currObj) => {
+    const objectName = objectNames(currObj);
+    const objectProps = buildObjectProps(currObj);
+    objectArr.push(objectString(objectName, objectProps));
+  });
+  return objectArr;
+}
+
+console.log(objectToString());
+objectToString();
