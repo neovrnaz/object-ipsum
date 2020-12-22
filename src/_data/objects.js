@@ -1,20 +1,23 @@
 const object1 = {
   key1: 'hello',
-  key2: 2,
+  key2: 'world',
 };
 
 const object2 = {
-  value1: 5,
-  value2: 2,
+  value1: 48,
+  value2: '256',
 };
 
-const objectsArray = [object1, object2];
+const object3 = {
+  one: '"1"',
+  two: '"2"',
+};
+
+const objectsArray = [object1, object2, object3];
 
 function getObjectName(obj) {
   return Object.keys(obj)[0];
 }
-
-console.log(getObjectName({bar}));
 
 function addNewLine(currPropNum, numOfProps) {
   const hasAnotherProp = currPropNum < numOfProps;
@@ -45,20 +48,13 @@ const ${objName} {
 };
 `;
 
-function objectStringBuilder(obj) {
+function objectStringBuilder(funct) {
   const objName = getObjectName(obj);
   const objProps = buildProps(obj);
   return objectToString(objName, objProps);
 }
 
-function buildAllStrings() {
-  for (let currObj = 0; currObj < objectsArray.length; currObj++) {
-    const currentObject = objectsArray[currObj];
-    const object = objectStringBuilder(currentObject);
-  }
-}
-
-buildAllStrings();
+loop
 
 module.exports = {
   eleventyComputed: {},
