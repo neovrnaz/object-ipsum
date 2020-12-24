@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  color: hsl(53, 82%, 62%);
+  color: hsl(52, 77%, 51%);
 }
 
 .debugger {
@@ -18,4 +18,9 @@ body {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+}
+
+.fruits {
+  font-size: 300%;
+  display: inline;
 }

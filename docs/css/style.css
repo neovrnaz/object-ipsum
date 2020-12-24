@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  color: #eedb4f;
+  color: #e2c922;
 }
 
 .debugger {
@@ -18,6 +18,11 @@ body {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+}
+
+.fruits {
+  font-size: 300%;
+  display: inline;
 }
 
 /*# sourceMappingURL=style.css.map */

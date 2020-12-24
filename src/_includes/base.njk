@@ -12,17 +12,12 @@
 <a href='{{ '/about/' | url }}'>About</a>
 <h1>{{ title }}</h1>
 {{ content | safe }}
-
 <div class='debugger'>
-    <h1>{{ objects.eleventyComputed.aString }}</h1>
-    <h1>{{ objects.eleventyComputed.obj1 }}</h1>
-    <h1>{{ objects.eleventyComputed.object }}</h1>
+    {% for fruit in fruits.fruitsArray %}
+        <div class='fruits'>{{ fruit }}</div>
+    {%- endfor -%}
 
-    {# Undefined #}
-    <h1>{{ html-demo.eleventyComputed.myString | log }}</h1>
-
+    {{ object-functions.eleventyComputed.templateString }}
 </div>
-
-
 </body>
 </html>
