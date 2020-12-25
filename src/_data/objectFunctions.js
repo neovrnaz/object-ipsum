@@ -2,11 +2,14 @@ const objects = require('./objects.js');
 
 const objectsArray = objects.array;
 
-console.log(objectsArray);
-
-function newLineForProps(currObj, numOf) {
-  const hasAnother = currObj < numOf;
+function newLineForProps(obj, numOf) {
+  const hasAnother = obj < numOf;
   return hasAnother ? '\n  ' : '';
+}
+
+function addQuotesToPropValues(val) {
+  const isValString = typeof val === 'string';
+  return isValString ? `'${val}'` : `${val}`;
 }
 
 function objectNameToString(obj) {
@@ -19,29 +22,27 @@ function buildObjectProps(obj) {
   let output = '';
   for (const [key, value] of Object.entries(obj)) {
     currentPropNum++;
-    output += `${key}: ${value}`;
+    const valueWithQuotes = addQuotesToPropValues(value);
+    output += `${key}: ${valueWithQuotes}`;
     output += newLineForProps(currentPropNum, numberOfProps);
   }
   return output;
 }
 
-// console.log(buildObjectProps(objectsArray));
-
 const objectToString = (objName, objProps) =>
   `const ${objName} = {\n  ${objProps}\n};\n\n`;
 
-function logObjectsAsString() {
+function objectsStringBuilder() {
   let objectsString = '';
   objectsArray.forEach((currObj) => {
     const objectName = objectNameToString(currObj);
     const objectProps = buildObjectProps(currObj);
     objectsString += objectToString(objectName, objectProps);
   });
-  console.log(objectsString);
   return objectsString;
 }
 
-function objectArrayBuilder() {
+function objectsArrayBuilder() {
   const objectArray = [];
   objectsArray.forEach((currObj) => {
     const objName = objectNameToString(currObj);
@@ -49,16 +50,14 @@ function objectArrayBuilder() {
     const objString = objectToString(objName, objProps);
     objectArray.push({objString});
   });
-  console.log(objectArray);
   return objectArray;
 }
 
-logObjectsAsString();
+const objectStrings = objectsStringBuilder();
+console.log(objectStrings);
 
 module.exports = {
   eleventyComputed: {
-    templateString: 'This is a string!',
-
-    // objectStrings: objectStringArray,
+    objectsStringBuilder,
   },
 };

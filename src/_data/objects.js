@@ -9,8 +9,8 @@ const object2 = {
 };
 
 const object3 = {
-  one: '"1"',
-  two: '"2"',
+  one: '1',
+  two: '2',
 };
 
 const object4 = {
