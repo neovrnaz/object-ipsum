@@ -53,11 +53,9 @@ function objectsArrayBuilder() {
   return objectArray;
 }
 
-const objectStrings = objectsStringBuilder();
-console.log(objectStrings);
+const objectsStringArray = objectsArrayBuilder();
+console.log(objectsStringArray);
 
 module.exports = {
-  eleventyComputed: {
-    objectsStringBuilder,
-  },
+  eleventyComputed: {},
 };

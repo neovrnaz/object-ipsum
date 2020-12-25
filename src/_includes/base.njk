@@ -17,8 +17,9 @@
         <div class='fruits'>{{ fruit }}</div>
     {%- endfor -%}
 
-
-    {{ objectFunctions.eleventyComputed.templateString }}
+    {% for obj in objectFunctions.objectStrings %}
+        <div class='objects'>{{ obj | log }}</div>
+    {%- endfor -%}
 </div>
 </body>
 </html>
