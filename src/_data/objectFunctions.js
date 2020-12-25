@@ -1,6 +1,6 @@
 const objectsFile = require('./objects.js');
 
-const objectsArray = objectsFile.array;
+const objectsFileArray = objectsFile.array;
 
 function newLineForProps(obj, numOf) {
   const hasAnother = obj < numOf;
@@ -32,19 +32,9 @@ function buildObjectProps(obj) {
 const objectToString = (objName, objProps) =>
   `const ${objName} = {\n  ${objProps}\n};\n\n`;
 
-function objectsStringBuilder() {
-  let objectsString = '';
-  objectsArray.forEach((currObj) => {
-    const objectName = objectNameToString(currObj);
-    const objectProps = buildObjectProps(currObj);
-    objectsString += objectToString(objectName, objectProps);
-  });
-  return objectsString;
-}
-
 function objectsArrayBuilder() {
   const objectArray = [];
-  objectsArray.forEach((currObj) => {
+  objectsFileArray.forEach((currObj) => {
     const objName = objectNameToString(currObj);
     const objProps = buildObjectProps(currObj);
     const objString = objectToString(objName, objProps);
@@ -53,21 +43,22 @@ function objectsArrayBuilder() {
   return objectArray;
 }
 
-const objectsStringArray = objectsArrayBuilder();
+const objectsArray = objectsArrayBuilder();
 
 function eachObjectFromStringArray() {
-  const objectStringArray = [];
-  for (let i = 0; i < objectsStringArray.length; i++) {
-    const object = objectsStringArray[i];
+  const objects = [];
+  for (let i = 0; i < objectsArray.length; i++) {
+    const object = objectsArray[i];
     for (const property in object) {
-      if (object.hasOwnProperty.call(object, property)) {
-        objectStringArray.push(object[property]);
+      if (Object.prototype.hasOwnProperty.call(object, property)) {
+        objects.push(object[property]);
       }
     }
   }
-  return objectStringArray;
+  return objects;
 }
 
+eachObjectFromStringArray();
 console.log(eachObjectFromStringArray());
 
 module.exports = {
