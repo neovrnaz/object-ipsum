@@ -2,6 +2,13 @@ const objectsFile = require('./objects.js');
 
 const objectsFileArray = objectsFile.array;
 
+function objectNameToString(obj) {
+  return Object.keys(obj)[0];
+}
+
+const objectToString = (objName, objProps) =>
+  `const ${objName} = {\n  ${objProps}\n};\n\n`;
+
 function newLineForProps(obj, numOf) {
   const hasAnother = obj < numOf;
   return hasAnother ? '\n  ' : '';
@@ -10,10 +17,6 @@ function newLineForProps(obj, numOf) {
 function addQuotesToPropValues(val) {
   const isValString = typeof val === 'string';
   return isValString ? `'${val}'` : `${val}`;
-}
-
-function objectNameToString(obj) {
-  return Object.keys(obj)[0];
 }
 
 function buildObjectProps(obj) {
@@ -28,9 +31,6 @@ function buildObjectProps(obj) {
   }
   return output;
 }
-
-const objectToString = (objName, objProps) =>
-  `const ${objName} = {\n  ${objProps}\n};\n\n`;
 
 function objectsArrayBuilder() {
   const objectArray = [];
@@ -58,9 +58,11 @@ function eachObjectFromStringArray() {
   return objects;
 }
 
-eachObjectFromStringArray();
-console.log(eachObjectFromStringArray());
+const objectsAsStringsArray = eachObjectFromStringArray();
+console.log(objectsAsStringsArray);
 
 module.exports = {
-  eleventyComputed: {},
+  eleventyComputed: {
+    objectStrings: objectsAsStringsArray,
+  },
 };
