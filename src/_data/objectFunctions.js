@@ -1,6 +1,6 @@
-const objects = require('./objects.js');
+const objectsFile = require('./objects.js');
 
-const objectsArray = objects.array;
+const objectsArray = objectsFile.array;
 
 function newLineForProps(obj, numOf) {
   const hasAnother = obj < numOf;
@@ -54,7 +54,21 @@ function objectsArrayBuilder() {
 }
 
 const objectsStringArray = objectsArrayBuilder();
-console.log(objectsStringArray);
+
+function eachObjectFromStringArray() {
+  const objectStringArray = [];
+  for (let i = 0; i < objectsStringArray.length; i++) {
+    const object = objectsStringArray[i];
+    for (const property in object) {
+      if (object.hasOwnProperty.call(object, property)) {
+        objectStringArray.push(object[property]);
+      }
+    }
+  }
+  return objectStringArray;
+}
+
+console.log(eachObjectFromStringArray());
 
 module.exports = {
   eleventyComputed: {},
