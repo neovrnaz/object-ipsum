@@ -32,7 +32,7 @@ function buildObjectProps(obj) {
   return output;
 }
 
-function objectsArrayBuilder() {
+function objectStringBuilder() {
   const objectArray = [];
   objectsFileArray.forEach((currObj) => {
     const objName = objectNameToString(currObj);
@@ -43,9 +43,9 @@ function objectsArrayBuilder() {
   return objectArray;
 }
 
-const objectsArray = objectsArrayBuilder();
+const objectsArray = objectStringBuilder();
 
-function eachObjectFromStringArray() {
+function getObjectsFromArray() {
   const objects = [];
   for (let i = 0; i < objectsArray.length; i++) {
     const object = objectsArray[i];
@@ -58,7 +58,7 @@ function eachObjectFromStringArray() {
   return objects;
 }
 
-const objectsAsStringsArray = eachObjectFromStringArray();
+const objectsAsStringsArray = getObjectsFromArray();
 console.log(objectsAsStringsArray);
 
 module.exports = {
