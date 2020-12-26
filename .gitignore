@@ -1,6 +1,9 @@
-.idea
+# Ignore installed npm modules
+node_modules/
+
+# Ignore folders from source code editors
+.idea/
+*.iml
+
+# Misc
 .DS_STORE
-.mil
-node_modules
-/docs
-docs/

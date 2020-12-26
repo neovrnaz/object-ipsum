@@ -58,6 +58,7 @@ function flattenObjectsArray() {
 }
 
 const objectStrings = flattenObjectsArray();
+console.log(objectStrings);
 
 module.exports = {
   eleventyComputed: {
