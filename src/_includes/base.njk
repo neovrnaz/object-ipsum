@@ -13,12 +13,8 @@
 <h1>{{ title }}</h1>
 {{ content | safe }}
 <div class='debugger'>
-    {% for fruit in fruits.fruitsArray %}
-        <div class='fruits'>{{ fruit }}</div>
-    {%- endfor -%}
-
-    {% for obj in objectFunctions.objectStrings %}
-        <div class='objects'>{{ obj | log }}</div>
+    {% for element in objectFunctions.eleventyComputed.objectStrings %}
+        <div class='object'>{{ element | log }}</div>
     {%- endfor -%}
 </div>
 </body>
