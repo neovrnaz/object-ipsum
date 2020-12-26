@@ -43,10 +43,9 @@ function objectStringBuilder() {
   return objectArray;
 }
 
-const objectsArray = objectStringBuilder();
-
-function getObjectsFromArray() {
+function flattenObjectsArray() {
   const objects = [];
+  const objectsArray = objectStringBuilder();
   for (let i = 0; i < objectsArray.length; i++) {
     const object = objectsArray[i];
     for (const property in object) {
@@ -58,11 +57,10 @@ function getObjectsFromArray() {
   return objects;
 }
 
-const objectsAsStringsArray = getObjectsFromArray();
-console.log(objectsAsStringsArray);
+const objectStrings = flattenObjectsArray();
 
 module.exports = {
   eleventyComputed: {
-    objectStrings: objectsAsStringsArray,
+    objectStrings,
   },
 };
