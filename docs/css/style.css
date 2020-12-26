@@ -1,13 +1,13 @@
 body {
   font-family: sans-serif;
-  color: #e2c922;
+  color: hsl(52, 77%, 51%);
 }
 
 .debugger {
   background: whitesmoke;
-  border: 1px solid #dedede;
-  border-left: 3px solid #f36e35;
-  color: #666666;
+  border: 1px solid hsl(0, 0%, 87%);
+  border-left: 3px solid hsl(18, 89%, 58%);
+  color: hsl(0, 0%, 40%);
   page-break-inside: avoid;
   font-family: monospace;
   font-size: 15px;
