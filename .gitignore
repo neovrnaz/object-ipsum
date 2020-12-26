@@ -1,3 +1,6 @@
 .idea
 .DS_STORE
+.mil
 node_modules
+/docs
+docs/

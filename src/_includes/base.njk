@@ -14,7 +14,7 @@
 {{ content | safe }}
 <div class='debugger'>
     {% for element in objectFunctions.eleventyComputed.objectStrings %}
-        <div class='object'>{{ element | log }}</div>
+        <div class='object'>{{ element }}</div>
     {%- endfor -%}
 </div>
 </body>
