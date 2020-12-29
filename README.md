@@ -2,7 +2,7 @@
 > Short blurb about what your product does.
 
 Carry an entire list of addresses and phone numbers in your terminal
-* List some bullet points of the projects features
+* List some bullet points of the Objects features
 
 <p align="center">
   <img src="https://via.placeholder.com/728x350.png?text=Placeholder+Image" width="600" alt=""/>

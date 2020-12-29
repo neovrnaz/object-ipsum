@@ -13,12 +13,7 @@ const object3 = {
   two: '2',
 };
 
-const object4 = {
-  foo: 'foo',
-  bar: 'bar',
-};
-
-const array = [object1, object2, object3, object4];
+const array = [object1, object2, object3];
 
 module.exports = {
   array,

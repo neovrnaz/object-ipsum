@@ -9,12 +9,17 @@
     <link rel='stylesheet' href='{{ 'css/style.css' | url }}'>
 </head>
 <body>
-<a href='{{ '/about/' | url }}'>About</a>
+<a href='{{ 'about/' | url }}'>About</a>
+<a href='{{ 'objects/' | url }}'>Objects</a>
 <h1>{{ title }}</h1>
 {{ content | safe }}
-<div class='debugger'>
+<div>
     {% for element in objectFunctions.eleventyComputed.objectStrings %}
-        <div class='object'>{{ element }}</div>
+        <main>
+            <label>
+                <textarea class='object'>{{ element }}</textarea>
+            </label>
+        </main>
     {%- endfor -%}
 </div>
 </body>

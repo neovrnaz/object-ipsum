@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='{{ '../css/style.css' | url }}'>
+</head>
+<body>
+
+<header class="heading">
+    <h1 class="heading-title">{ object: ipsum }</h1>
+</header>
+
+<div class="objects">
+    <div class="cards">
+        {% for element in objectFunctions.eleventyComputed.objectStrings %}
+            <label>
+                <textarea class='card'>{{ element }}</textarea>
+            </label>
+        {%- endfor -%}
+
+    </div>
+</div>
+
+
+</body>
+</html>

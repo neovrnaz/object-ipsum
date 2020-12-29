@@ -1,26 +1,127 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,700&display=swap');
+
+$black-hue: 253;
+$black-saturation: 8;
+
+$black: hsl($black-hue, $black-saturation, 2);
+$coal: hsl($black-hue, $black-saturation, 12);
+$darkgrey: hsl($black-hue, $black-saturation, 15);
+$grey: hsl($black-hue, $black-saturation, 21);
+$silver: hsl($black-hue, $black-saturation, 40);
+$gainsboro: hsl($black-hue, $black-saturation, 60);
+$whitesmoke: hsl($black-hue, $black-saturation, 82);
+$white: hsl($black-hue, $black-saturation, 92);
+
+$purple: hsl(291, 100, 45);
+$pink: hsl(335.9, 89%, 46.5%);
+$red: hsl(0, 80, 51);
+$orangered: hsl(4, 66, 51);
+$orange: hsl(35.9, 89%, 46.5%);
+$gold: hsl(42, 100, 55);
+$yellow: hsl(50, 100%, 77%);
+$green: hsl(95.8, 89.9%, 46.5%);
+$blue: hsl(215.9, 89%, 46.5%);
+$turquoise: hsl(155.8, 89.9%, 46.5%);
+
+html {
+  background-color: $coal;
+  color: $whitesmoke;
   font-family: sans-serif;
-  color: hsl(52, 77%, 51%);
 }
 
-.debugger {
-  background: hsl(0, 0%, 96%);
-  border: 1px solid hsl(0, 0%, 87%);
-  border-left: 3px solid hsl(18, 89%, 58%);
-  color: hsl(0, 0%, 40%);
-  page-break-inside: avoid;
-  font-family: monospace;
+body {
+  margin: 0;
+}
+
+.heading {
+  font-size: 18px;
+  color: $black;
+  padding: 20px;
+  text-align: left;
+  background: $white
+    linear-gradient(
+      47deg,
+      $white calc(100% - 300px),
+      #fff calc(100% - 300px),
+      #fff calc(100% - 296px),
+      $yellow calc(100% - 296px));
+  @media (min-width: 800px) {
+    padding-bottom: 14vmin;
+  }
+}
+
+.heading-title {
+  margin-top: 38px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: left;
+}
+.heading-subtitle {
+  color: $silver;
+  font-size: 25px;
+  margin: 0 0 110px;
+}
+.objects h2 {
+  display: none;
+}
+
+.cards {
+  padding: 0 20px;
+  list-style: none;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+  grid-gap: 20px;
+  @media (min-width: 800px) {
+    margin-top: -9vmin;
+    grid-template-columns: repeat(auto-fit, minmax(28ch, 1fr));
+  }
+}
+
+label {
+  flex-direction: column;
+  display: flex;
+}
+
+.card {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: $coal;
+  text-decoration: none;
+  padding: 20px;
+  height: 8em;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba($coal, 0.2);
+  resize: vertical;
+  text-align: left;
+  min-height: auto;
+  &:hover {
+    background-color: white;
+  }
+  &:focus {
+    box-shadow: 0 0 0 14pt $blue;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 0 2px 2px rgba($coal, 0.5);
+  }
+}
+
+.card-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-obj {
+  font-family: 'Space Mono', monospace;
+  margin: auto 0 0 0;
   font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em 1.5em;
-  display: block;
-  word-wrap: break-word;
-}
-
-.fruits {
-  font-size: 300%;
-  display: inline;
+  color: gainsboro;
 }
