@@ -110,7 +110,7 @@ const salaries = {
 };
 
 const address = {
-  'building no': 3960,
+  buildingNum: 3960,
   street: 'North 1st street',
   state: 'CA',
   country: 'USA',

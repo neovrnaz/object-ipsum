@@ -2,7 +2,7 @@ const objectsFile = require('./objects.js');
 
 const objectsFileArray = objectsFile.array;
 
-function objectNameToString(obj) {
+function getObjectName(obj) {
   return Object.keys(obj)[0];
 }
 
@@ -22,7 +22,7 @@ function addQuotesToPropValues(val) {
 function objectsStringBuilder() {
   let objectsString = '';
   objectsFileArray.forEach((currObj) => {
-    const objectName = objectNameToString(currObj);
+    const objectName = getObjectName(currObj);
     const objectProps = buildObjectProps(currObj);
     objectsString += objectToString(objectName, objectProps);
   });
@@ -66,7 +66,7 @@ function buildObjectProps(obj) {
 function objectStringBuilder() {
   const objectArray = [];
   objectsFileArray.forEach((currObj) => {
-    const objName = objectNameToString(currObj);
+    const objName = getObjectName(currObj);
     const objProps = buildObjectProps(currObj);
     const objString = objectToString(objName, objProps);
     objectArray.push({objString});
