@@ -19,14 +19,45 @@ function addQuotesToPropValues(val) {
   return isValString ? `'${val}'` : `${val}`;
 }
 
+function objectsStringBuilder() {
+  let objectsString = '';
+  objectsFileArray.forEach((currObj) => {
+    const objectName = objectNameToString(currObj);
+    const objectProps = buildObjectProps(currObj);
+    objectsString += objectToString(objectName, objectProps);
+  });
+  return objectsString;
+}
+
+function addObjToKey(val) {
+  let output = '';
+  const objInner = val;
+  const numberOfPropsInner = Object.keys(objInner).length;
+  let currentPropNumInner = 0;
+  for (const [keyInner, valueInner] of Object.entries(objInner)) {
+    currentPropNumInner++;
+    const valueWithQuotesInner = addQuotesToPropValues(valueInner);
+    output += `  ${keyInner}: ${valueWithQuotesInner},`;
+    output += newLineForProps(currentPropNumInner, numberOfPropsInner);
+  }
+  output += '\n  }';
+  return output;
+}
+
 function buildObjectProps(obj) {
   const numberOfProps = Object.keys(obj).length;
   let currentPropNum = 0;
   let output = '';
   for (const [key, value] of Object.entries(obj)) {
     currentPropNum++;
+    if (typeof value === 'object') {
+      const innerValueWithQuotes = addObjToKey(value);
+      output += `${key}: {\n  ${innerValueWithQuotes},`;
+      output += newLineForProps(currentPropNum, numberOfProps);
+      continue;
+    }
     const valueWithQuotes = addQuotesToPropValues(value);
-    output += `${key}: ${valueWithQuotes}`;
+    output += `${key}: ${valueWithQuotes},`;
     output += newLineForProps(currentPropNum, numberOfProps);
   }
   return output;
@@ -58,7 +89,6 @@ function flattenObjectsArray() {
 }
 
 const objectStrings = flattenObjectsArray();
-console.log(objectStrings);
 
 module.exports = {
   eleventyComputed: {

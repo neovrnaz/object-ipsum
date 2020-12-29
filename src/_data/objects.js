@@ -1,19 +1,34 @@
-const object1 = {
-  key1: 'hello',
-  key2: 'world',
+const product = {
+  name: 'apple',
+  category: 'fruits',
+  price: 1.99,
+  price2: 2.99,
+  nutrients: {
+    carbs: 0.95,
+    fats: 0.3,
+    protein: 0.2,
+  },
 };
 
-const object2 = {
-  value1: 48,
-  value2: '256',
+const truck = {
+  type: 'Ford',
+  model: 'f150',
+  color: 'white',
 };
 
-const object3 = {
-  one: '1',
-  two: '2',
+const person = {
+  name: 'George',
+  age: 27,
+  eyeColor: 'Hazel',
 };
 
-const array = [object1, object2, object3];
+const school = {
+  name: 'Vivekananda School',
+  location: 'Delhi',
+  established: '1971',
+};
+
+const array = [product, truck, person, school];
 
 module.exports = {
   array,
