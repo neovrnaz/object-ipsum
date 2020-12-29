@@ -114,6 +114,12 @@ label {
   }
 }
 
+textarea {
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 1px $coal !important;
+  border: 8px solid transparent !important;
+}
+
 .card-title {
   font-size: 18px;
   margin: 0;

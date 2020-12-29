@@ -89,6 +89,12 @@ label {
   box-shadow: 0 2px 2px rgba(29, 28, 33, 0.5);
 }
 
+textarea {
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 1px #1d1c21 !important;
+  border: 8px solid transparent !important;
+}
+
 .card-title {
   font-size: 18px;
   margin: 0;
